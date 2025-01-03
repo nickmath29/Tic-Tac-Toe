@@ -38,6 +38,7 @@ def main():
                     #print(board.squares)
                 if board.final_state() == 1 or board.final_state() == 2:
                     print('Game Over')
+                    
                 
         pygame.display.update()
             

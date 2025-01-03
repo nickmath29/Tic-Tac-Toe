@@ -46,3 +46,5 @@ class Game:
     
     def next_turn(self):
         self.player = self.player % 2 + 1
+    
+ 
