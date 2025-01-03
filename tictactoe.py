@@ -14,7 +14,9 @@ def main():
     
     # objects
     game = Game(screen)
+    board = game.board
     
+    # mainloop
     while True:
         
         for event in pygame.event.get():
@@ -23,6 +25,17 @@ def main():
                 pygame.quit()
                 sys.exit()
         
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pos = event.pos
+                row = pos[1] // SQSIZE
+                col = pos[0] // SQSIZE
+                
+                if board.empty_sqr(row, col):
+                    board.mark_sqr(row, col, game.player)
+                    game.draw_fig(screen, row, col, game.player)
+                    game.next_turn()
+                    #print(board.squares)
+                
         pygame.display.update()
             
 
