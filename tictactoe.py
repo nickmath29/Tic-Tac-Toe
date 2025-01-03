@@ -1,5 +1,6 @@
 import sys
 import pygame
+import numpy as np
 
 from constants import *
 from game import Game
@@ -35,6 +36,8 @@ def main():
                     game.draw_fig(screen, row, col, game.player)
                     game.next_turn()
                     #print(board.squares)
+                if board.final_state() == 1 or board.final_state() == 2:
+                    print('Game Over')
                 
         pygame.display.update()
             

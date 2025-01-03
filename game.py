@@ -3,13 +3,17 @@ import pygame
 
 from constants import *
 from board import Board
+from AI import AI
 
 
 class Game:
     
     def __init__(self, screen):
         self.board = Board()
+        self.ai = AI()
         self.player = 1 # 1-Cross 2-Circles
+        self.gamemode = 'pvp'
+        self.running =  True
         self.show_lines(screen)
     
     def show_lines(self, screen):
