@@ -1,7 +1,6 @@
 import random
 import copy
 
-
 class AI:
     def __init__(self, level=1, player=2):
         self.level = level
@@ -27,8 +26,6 @@ class AI:
         # draw
         elif board.isfull():
             return 0, None
-        
-        
         
         if maximizing:
             max_eval = -100

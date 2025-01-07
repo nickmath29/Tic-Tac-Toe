@@ -1,7 +1,5 @@
 import sys
 import pygame
-import random
-import numpy as np
 
 from constants import *
 from game import Game
@@ -12,9 +10,7 @@ screen = pygame.display.set_mode( (WIDTH, HEIGHT) )
 pygame.display.set_caption('TIC TAC TOE')
 screen.fill(BG_COLOR)
 
-
-def main():
-    
+def main():    
     # objects
     game = Game(screen)
     board = game.board
@@ -69,8 +65,7 @@ def main():
                 if game.isover(screen):
                     game.running = False
                     print('Game Over')
-            
-                        
+                              
         if game.gamemode == 'ai' and game.player == ai.player and game.running:
             if game.isover(screen):
                 game.running = False
@@ -84,11 +79,7 @@ def main():
                 
                 # Move into a function
                 make_move(row, col)
-            
-                    
-                
+             
         pygame.display.update()
             
-
-
 main()

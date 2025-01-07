@@ -1,4 +1,3 @@
-import sys
 import pygame
 
 from constants import *
@@ -30,7 +29,7 @@ class Game:
     def draw_fig(self, screen, row, col, player):
         if player == 1:
             # draw cross
-            
+        
             # descending line
             start_desc = (col * SQSIZE + OFFSET, row * SQSIZE + OFFSET)
             end_desc = (col * SQSIZE + SQSIZE - OFFSET, row * SQSIZE + SQSIZE - OFFSET)
