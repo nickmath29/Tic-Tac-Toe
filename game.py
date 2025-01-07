@@ -9,14 +9,16 @@ from AI import AI
 class Game:
     
     def __init__(self, screen):
-        self.board = Board()
+        self.board = Board(screen)
         self.ai = AI()
         self.player = 1 # 1-Cross 2-Circles
-        self.gamemode = 'ai'
+        self.gamemode = 'pvp'
         self.running =  True
         self.show_lines(screen)
     
     def show_lines(self, screen):
+        screen.fill(BG_COLOR)
+        
         # vertical lines
         pygame.draw.line(screen, LINE_COLOR, (SQSIZE, 0), (SQSIZE, HEIGHT), LINE_WIDTH)
         pygame.draw.line(screen, LINE_COLOR, (WIDTH - SQSIZE, 0), (WIDTH-SQSIZE, HEIGHT), LINE_WIDTH)
@@ -47,4 +49,16 @@ class Game:
     def next_turn(self):
         self.player = self.player % 2 + 1
     
+    def change_gamemode(self):
+        if self.gamemode == 'pvp':
+            self.gamemode = 'ai'
+            print(f'Gamemode: {self.gamemode}')
+        else:
+            self.gamemode = 'pvp'
+            print(f'Gamemode: {self.gamemode}')
+    
+    def isover(self, screen):
+        return self.board.final_state(screen, show=True) != 0 or self.board.isfull()
  
+    def reset(self, screen):
+        self.__init__(screen)
