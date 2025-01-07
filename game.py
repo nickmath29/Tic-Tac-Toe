@@ -12,7 +12,7 @@ class Game:
         self.board = Board()
         self.ai = AI()
         self.player = 1 # 1-Cross 2-Circles
-        self.gamemode = 'pvp'
+        self.gamemode = 'ai'
         self.running =  True
         self.show_lines(screen)
     

@@ -1,5 +1,6 @@
 import sys
 import pygame
+import random
 import numpy as np
 
 from constants import *
@@ -16,6 +17,7 @@ def main():
     # objects
     game = Game(screen)
     board = game.board
+    ai = game.ai
     
     # mainloop
     while True:
@@ -38,6 +40,19 @@ def main():
                     #print(board.squares)
                 if board.final_state() == 1 or board.final_state() == 2:
                     print('Game Over')
+        
+        if game.gamemode == 'ai' and game.player == ai.player:
+            pygame.display.update()
+        
+            # ai methods
+            row, col = ai.eval(board)
+            
+            # Move into a function
+            board.mark_sqr(row, col, game.player)
+            game.draw_fig(screen, row, col, game.player)
+            game.next_turn()
+            
+            
                     
                 
         pygame.display.update()
