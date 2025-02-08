@@ -75,7 +75,7 @@ def main():
                 pygame.display.update()
             
                 # ai methods
-                row, col = ai.eval(board)
+                row, col = ai.eval(board, screen)
                 
                 # Move into a function
                 make_move(row, col)
